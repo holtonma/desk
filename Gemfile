@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.18'
 gem 'pg'
 gem 'jquery-rails'
-gem 'oauth'
-
 gem 'desk'
 gem 'draper', '~> 1.3'
 
