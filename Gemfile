@@ -5,6 +5,9 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'oauth'
 
+gem 'desk'
+gem 'draper', '~> 1.3'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
