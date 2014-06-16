@@ -4,7 +4,7 @@ class Filter
     Desk.filters
   end
   
-  def self.find(id) # 2013093
+  def self.find(id)
     Desk.filter(id)
   end
   

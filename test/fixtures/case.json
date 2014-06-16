@@ -1,0 +1,93 @@
+{
+  "id": 1,
+  "external_id": null,
+  "blurb": "I want to personally thank you for signing up to try Desk.com! To ensure you get the most out of your trial, here are some helpful tips and quick ways to get started:\n\n1. USE IT - You’ve got 14 days to try us out - please do so and tell us what you t",
+  "subject": "Getting Started with Your New Account",
+  "priority": 4,
+  "locked_until": null,
+  "description": "",
+  "status": "open",
+  "type": "email",
+  "labels": [
+    "Abandoned Chats",
+    "Feedback",
+    "More Info",
+    "Negative Feedback",
+    "Sample Case"
+  ],
+  "label_ids": [
+    1815757,
+    1815755,
+    1815760,
+    1815758,
+    1815754
+  ],
+  "language": null,
+  "active_at": "2014-06-15T05:25:02Z",
+  "created_at": "2014-06-08T05:00:58Z",
+  "updated_at": "2014-06-15T05:23:54Z",
+  "received_at": "2014-06-08T05:00:58Z",
+  "first_opened_at": "2014-06-08T05:14:19Z",
+  "opened_at": "2014-06-08T05:14:19Z",
+  "first_resolved_at": null,
+  "resolved_at": null,
+  "custom_fields": {},
+  "_links": {
+    "self": {
+      "href": "/api/v2/cases/1",
+      "class": "case"
+    },
+    "message": {
+      "href": "/api/v2/cases/1/message",
+      "class": "email"
+    },
+    "customer": {
+      "href": "/api/v2/customers/210301497",
+      "class": "customer"
+    },
+    "labels": {
+      "href": "/api/v2/cases/1/labels",
+      "class": "label"
+    },
+    "assigned_user": {
+      "href": "/api/v2/users/22075921",
+      "class": "user"
+    },
+    "assigned_group": {
+      "href": "/api/v2/groups/420043",
+      "class": "group"
+    },
+    "locked_by": null,
+    "history": {
+      "href": "/api/v2/cases/1/history",
+      "class": "history"
+    },
+    "case_links": {
+      "href": "/api/v2/cases/1/links",
+      "class": "case_link"
+    },
+    "macro_preview": {
+      "href": "/api/v2/cases/1/macros/preview",
+      "class": "macro_preview"
+    },
+    "replies": {
+      "href": "/api/v2/cases/1/replies",
+      "class": "reply",
+      "count": 1
+    },
+    "draft": {
+      "href": "/api/v2/cases/1/replies/draft",
+      "class": "reply"
+    },
+    "notes": {
+      "href": "/api/v2/cases/1/notes",
+      "class": "note",
+      "count": 0
+    },
+    "attachments": {
+      "href": "/api/v2/cases/1/attachments",
+      "class": "attachment",
+      "count": 0
+    }
+  }
+}

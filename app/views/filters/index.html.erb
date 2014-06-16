@@ -1,5 +1,6 @@
 <h1>Filters (<%= @filters.count %>)</h1>
 
 <% @filters.each do |filter| %>
-  <div><%= filter.show %></div>
+  <div><%= filter.link_to_filter %></div>
 <% end %>
+

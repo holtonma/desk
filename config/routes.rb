@@ -1,5 +1,8 @@
 Desk::Application.routes.draw do
-  resources :filters
+  resources :filters do 
+    resources :cases
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

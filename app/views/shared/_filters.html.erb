@@ -1,0 +1,12 @@
+<div class="well well-sm sidebar-nav">
+  <h3>Case Filters</h3>
+  
+  <div id="filters" class="list-group">
+  <% filters.each do |filter| %>
+    <%= filter.link_to_filter(active_filter_id) %>
+  <% end %>
+  </div>
+</div><!--/.well -->
+          
+
+

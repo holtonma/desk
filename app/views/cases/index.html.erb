@@ -1,0 +1,38 @@
+<% content_for :left_nav do %>
+  <%= render :partial => 'shared/filters', :locals => {:filters => @filters, :active_filter_id => @active_filter_id}%>
+<% end %>
+
+
+<% content_for :main do %>
+  <div class="panel panel-primary">
+    
+    <div class="panel-heading">
+      <h4><%= @active_filter_name %></h4>
+    </div>
+          
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Status</th>
+        <th>Subject</th>
+        <th>Updated</th>
+        <th>Labels</th>
+      </tr>
+      <% @desk_cases.each do |desk_case| %>
+        <%# TODO: move this into Decorator %>
+        <tr>
+          <td><%= desk_case.id %></td>
+          <td><span class="<%= desk_case.status_label_classes %>"><%= desk_case.status %></span></td>
+          <td><%= desk_case.subject %></td>
+          <td><small class="text-muted"><%= time_ago_in_words(desk_case.updated_at) %> ago</small></td>
+          <td>
+            <% desk_case.labels.each do |label| %>
+              <span class="label label-default"><%= label %></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+
