@@ -8,18 +8,17 @@ gem 'draper', '~> 1.3'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'sass-rails',   '~> 3.2.3'
+gem 'coffee-rails', '~> 3.2.1'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
 
-  gem 'uglifier', '>= 1.0.3'  
-  
-  gem 'therubyracer'
-  gem 'less-rails'
-  # need bootstrap3 branch of the gem to get list-group and some other goodies:
-  gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
-end
+gem 'uglifier', '>= 1.0.3'  
+
+gem 'therubyracer'
+gem 'less-rails'
+# need bootstrap3 branch of the gem to get list-group and some other goodies:
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
+
 
 group :test do
   gem 'webmock'
