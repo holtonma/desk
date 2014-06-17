@@ -7,11 +7,13 @@
 <div id="label-modal-body" class="modal-body">
   <div class="well">
     <div>
-      Subject: <%=@desk_case.subject %>
+      <p><strong>Subject:</strong> <%=@desk_case.subject %></p>
     </div>
     <div>
-      Labels:
-      <%= @desk_case.render_labels(@existing_labels) %> 
+      <p>
+        <div><strong>Existing Labels:</strong></div>
+        <%= @desk_case.render_labels(@existing_labels) %>
+      </p>
     </div>
   </div>
   
