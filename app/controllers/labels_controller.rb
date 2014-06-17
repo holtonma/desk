@@ -24,7 +24,7 @@ class LabelsController < ApplicationController
   private
   
   def prepare_form
-    @labels = LabelsDecorator.decorate_collection(Label.all)
+    @labels = LabelDecorator.decorate_collection(Label.all)
     # for label form:
     @color_options = Label::COLOR_OPTIONS
     @type_options  = Label::TYPES

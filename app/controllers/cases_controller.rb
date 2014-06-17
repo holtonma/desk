@@ -12,7 +12,7 @@ class CasesController < ApplicationController
   
   def show
     @desk_case   = DeskCase.find(params[:id])
-    @label_names = LabelsDecorator.decorate_collection(Label.all)
+    @label_names = LabelDecorator.decorate_collection(Label.all)
     render :layout => false
   end
   
