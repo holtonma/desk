@@ -10,6 +10,8 @@
       <h4><%= @active_filter_name %></h4>
     </div>
           
+    <%= render :partial => 'add_label' %>
+    
     <table class="table table-striped">
       <tr>
         <th>ID</th>
@@ -17,7 +19,7 @@
         <th>Subject</th>
         <th>Updated</th>
         <th>Labels</th>
-        <th>Add Label</th>
+        <th nowrap>Add Label</th>
       </tr>
       <% @desk_cases.each do |desk_case| %>
         <%# TODO: move this into Decorator %>
@@ -31,14 +33,14 @@
               <span class="label label-default"><%= label %></span>
             <% end %>
           </td>
-          <td>
-            <button type="button" id="launch-label_<%=desk_case.id-%>" data-loading-text="Loading..." class="btn btn-primary btn-sm" onclick="Case.launchAddLabel(this);">
-              Add Label
-            </button>
+          <td nowrap>
+            <a href="#" onclick="Case.launchAddLabel(<%=desk_case.id%>);">Add Label</a>
           </td>
         </tr>
       <% end %>
     </table>
   </div>
+  
+  
 <% end %>
 

@@ -10,5 +10,14 @@ class CasesController < ApplicationController
     respond_with([@filters, @desk_cases])
   end
   
+  def show
+    @desk_case   = DeskCase.find(params[:id])
+    @label_names = Label.all_label_names
+    render :layout => false
+  end
+  
+  def update
+    # TODO
+  end
 end
 
