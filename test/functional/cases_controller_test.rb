@@ -60,12 +60,45 @@ class CasesControllerTest < ActionController::TestCase
     assert_template :show
   end
   
+  # exceptions 
+  
+  test "rescue from 404" do
+    filter_id = 1234
+    setup_response_code_mock(404)
+    
+    get :index, {:filter_id => filter_id}
+    assert_template 'shared/remote_error'
+    assert_match "not found", @response.body
+  end
+  
+  test "rescue from 401 Unauthorized" do
+    filter_id = 1234
+    setup_response_code_mock(401)
+    
+    get :index, {:filter_id => filter_id}
+    assert_template 'shared/remote_error'
+    assert_match "Unauthorized", @response.body
+  end
+  
+  test "rescue from 401 Bad Request" do
+    filter_id = 1234
+    setup_response_code_mock(400)
+    
+    get :index, {:filter_id => filter_id}
+    assert_template 'shared/remote_error'
+    assert_match "Bad Request", @response.body
+  end
   
   private
   
   def setup_cases_mocks(filter_id)
     stub_get_request("filters",                    "filters.json")
     stub_get_request("filters/#{filter_id}/cases", "cases.json")
+  end
+  
+  def setup_response_code_mock(status, relative_endpoint="filters")
+    stub_request(:get, "https://redgrind.desk.com/api/v2/#{relative_endpoint}").
+      to_return(:status => status, :body => {}, :headers => {:content_type => "application/json; charset=utf-8"})
   end
   
 end

@@ -1,4 +1,5 @@
 class CasesController < ApplicationController
+  
   respond_to :js, :html
   
   def index
@@ -25,5 +26,9 @@ class CasesController < ApplicationController
     flash[:notice] = "Successfully appended label!"
     redirect_to :action => 'index'    
   end
+  
+  private
+  
+
 end
 
