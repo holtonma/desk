@@ -10,4 +10,8 @@ class DeskCase
     Desk.case(id)
   end
   
+  def self.append_case_label(case_id, label_name)
+    Desk.update_case(case_id.to_i, :labels => [label_name.to_s])
+  end
+  
 end

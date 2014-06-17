@@ -17,6 +17,7 @@
         <th>Subject</th>
         <th>Updated</th>
         <th>Labels</th>
+        <th>Add Label</th>
       </tr>
       <% @desk_cases.each do |desk_case| %>
         <%# TODO: move this into Decorator %>
@@ -29,6 +30,11 @@
             <% desk_case.labels.each do |label| %>
               <span class="label label-default"><%= label %></span>
             <% end %>
+          </td>
+          <td>
+            <button type="button" id="launch-label_<%=desk_case.id-%>" data-loading-text="Loading..." class="btn btn-primary btn-sm" onclick="Case.launchAddLabel(this);">
+              Add Label
+            </button>
           </td>
         </tr>
       <% end %>

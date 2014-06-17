@@ -15,5 +15,6 @@ class CaseDecorator < Draper::Decorator
         "label-default"
     end
   end
-  
+
+
 end
