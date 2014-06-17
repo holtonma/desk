@@ -3,6 +3,7 @@ Desk::Application.routes.draw do
     resources :cases
   end
   
+  resources :labels
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

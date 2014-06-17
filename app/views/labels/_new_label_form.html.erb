@@ -1,0 +1,12 @@
+<%= simple_form_for(@label, :as => 'label_form', :url => labels_path, :method => :post) do |form| %>
+  <%= form.input :name,        input_html: { class: 'form-control', placeholder: 'Enter label name' }, wrapper_html: { class: 'form-group' } %>
+  <%= form.input :description, input_html: { class: 'form-control', placeholder: '(optional)' }, wrapper_html: { class: 'form-group' } %>
+  <%= form.input :color, collection: @color_options, prompt: "Select color", input_html: { class: 'form-control'}, wrapper_html: { class: 'form-group' } %>
+  
+  <div class="well well-sm">
+    <%= form.input :enabled, label: false, inline_label: 'Agent-enabled ',  as: :boolean  %>
+    <%= form.input :types, label: "Enable for:", as: :check_boxes, collection: ['case', 'macro'], :item_wrapper_class => 'inline', :checked => @label.types, :include_hidden => false %>
+  </div>
+  
+  <%= form.submit 'Create Label', {:class=>'btn btn-success'} %> 
+<% end %>

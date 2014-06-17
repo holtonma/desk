@@ -1,0 +1,26 @@
+<div class="panel panel-primary">
+  
+  <div class="panel-heading">
+    <h4>All Labels</h4>
+  </div>
+        
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Enabled</th>
+      <th>Types</th>
+      <th>Color</th>
+    </tr>
+    <% @labels.each do |label| %>
+      <%# TODO: move this into Decorator %>
+      <tr>
+        <td><%= label.name %></td>
+        <td><%= label.description %></td>
+        <td><%= label.enabled %></td>
+        <td><%= label.types %></td>
+        <td><%= label.color %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

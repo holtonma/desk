@@ -16,6 +16,6 @@ access_token = OAuth::AccessToken.from_hash(
 )
 
 #response = access_token.get("https://redgrind.desk.com/api/v2/cases?filter_id=2013094")
-response = access_token.get("https://redgrind.desk.com/api/v2/cases/1")
+response = access_token.get("https://redgrind.desk.com/api/v2/labels")
 
 puts JSON.parse(response.body).to_json

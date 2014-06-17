@@ -1,0 +1,15 @@
+<% content_for :left_nav do %>
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h4>Create New Label</h4>
+    </div>
+    
+    <div class="panel-body">
+      <%= render :partial => "new_label_form" %>
+    </div>
+  </div>
+<% end %>
+
+<% content_for :main do %>
+  <%= render :partial => "all" %>
+<% end %>
