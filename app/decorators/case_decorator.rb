@@ -21,6 +21,15 @@ class CaseDecorator < Draper::Decorator
     "label #{case_state_class}"
   end
   
+  def render_labels(labels)
+    html_output = ""
+    labels.each do |label|
+      html_output += h.content_tag(:span, label, :class => "label_#{id} label label-default")
+      html_output += "&nbsp;"
+    end
+    
+    html_output.html_safe
+  end
   
   private
   
@@ -38,7 +47,7 @@ class CaseDecorator < Draper::Decorator
     cells += h.content_tag(:td, status_cell)
     cells += h.content_tag(:td, subject)
     cells += h.content_tag(:td, h.time_ago_in_words(updated_at) )
-    cells += h.content_tag(:td, labels_cell)
+    cells += h.content_tag(:td, render_labels(labels))
     cells += h.content_tag(:td, add_label_cell, :nowrap=>true)
     
     cells.html_safe
@@ -47,16 +56,6 @@ class CaseDecorator < Draper::Decorator
   def add_label_cell
     # for now, in onclick handler:
     h.link_to('Add Label', '#', :onclick => "Case.launchAddLabel(#{id})").html_safe
-  end
-  
-  def labels_cell
-    html_output = ""
-    labels.each do |t|
-      html_output += h.content_tag(:span, t, :class => "label label-default")
-      html_output += "&nbsp;"
-    end
-    
-    html_output.html_safe
   end
   
   def status_cell

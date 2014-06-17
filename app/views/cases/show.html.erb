@@ -10,10 +10,8 @@
       Subject: <%=@desk_case.subject %>
     </div>
     <div>
-      Labels: 
-      <% @desk_case.raw.labels.each do |label| %>
-        <span class="label label-default"><%=h label %></span>
-      <% end %>
+      Labels:
+      <%= @desk_case.render_labels(@existing_labels) %> 
     </div>
   </div>
   

@@ -11,7 +11,8 @@ class CasesController < ApplicationController
   end
   
   def show
-    @desk_case   = DeskCase.find(params[:id])
+    @existing_labels = params[:labels]
+    @desk_case   = CaseDecorator.decorate(DeskCase.find(params[:id]))
     @label_names = LabelDecorator.decorate_collection(Label.all)
     render :layout => false
   end

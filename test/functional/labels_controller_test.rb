@@ -50,7 +50,6 @@ class LabelsControllerTest < ActionController::TestCase
     
     post :create, {"label_form"=>{"name"=>"", "description"=>"asdf", "color"=>"white", "enabled"=>"1", "types"=>["case", "macro", ""]}}
     assert flash[:alert]
-    puts flash[:alert]
     assert_template :index
   end
   

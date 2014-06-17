@@ -55,7 +55,7 @@ class CasesControllerTest < ActionController::TestCase
     stub_get_request("cases/#{case_id}",         "case.json")
     stub_get_request("cases/#{case_id}/labels",  "labels.json")
     
-    get :show, {:filter_id => 1234, :id => 1}
+    get :show, {:filter_id => 1234, :id => 1, :labels => ["Escalated Example"]}
     assert_response :success
     assert_template :show
   end
