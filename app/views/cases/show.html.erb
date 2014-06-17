@@ -16,8 +16,9 @@
       <% end %>
     </div>
   </div>
-  <%= simple_form_for(:desk_case, :url => filter_case_path, :method => :put) do |form| %>
-  <%= form.input :labels, collection: @label_names, prompt: "Select label", input_html: { class: 'form-control'}, wrapper_html: { class: 'form-group' } %>
+  
+  <%= simple_form_for(@desk_case, :as => 'desk_case_form', :url => filter_case_path, :method => :put) do |form| %>
+    <%= form.input :labels, :collection => @label_names, :value_method => :name, prompt: "Select label", input_html: { class: 'form-control'}, wrapper_html: { class: 'form-group' } %>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       <%= form.submit 'Append Label', {:class=>'btn btn-success'} %>

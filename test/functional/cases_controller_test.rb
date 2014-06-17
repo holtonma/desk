@@ -47,11 +47,24 @@ class CasesControllerTest < ActionController::TestCase
     get :index, {:filter_id => filter_id}
     assert assigns(:desk_cases).decorated_with?(Draper::CollectionDecorator)
   end
+
+  test "should get show" do 
+    case_id = 1
+    
+    stub_get_request("labels",                   "labels.json")
+    stub_get_request("cases/#{case_id}",         "case.json")
+    stub_get_request("cases/#{case_id}/labels",  "labels.json")
+    
+    get :show, {:filter_id => 1234, :id => 1}
+    assert_response :success
+    assert_template :show
+  end
+  
   
   private
   
   def setup_cases_mocks(filter_id)
-    stub_get_request("filters",                   "filters.json")
+    stub_get_request("filters",                    "filters.json")
     stub_get_request("filters/#{filter_id}/cases", "cases.json")
   end
   

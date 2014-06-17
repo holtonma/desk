@@ -12,12 +12,17 @@ class CasesController < ApplicationController
   
   def show
     @desk_case   = DeskCase.find(params[:id])
-    @label_names = Label.all_label_names
+    @label_names = LabelsDecorator.decorate_collection(Label.all)
     render :layout => false
   end
   
   def update
-    # TODO
+    new_label = params[:desk_case_form][:labels]
+    case_id   = params[:id]
+    DeskCase.append_case_label(case_id, new_label)
+    
+    flash[:notice] = "Successfully appended label!"
+    redirect_to :action => 'index'    
   end
 end
 

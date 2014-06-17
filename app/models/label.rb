@@ -21,10 +21,6 @@ class Label
     Desk.labels
   end
   
-  def self.all_label_names
-    all.map{ |label| label.name }
-  end
-  
   def self.find(id)
     Desk.label(id)
   end
