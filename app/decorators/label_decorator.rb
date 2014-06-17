@@ -3,14 +3,14 @@ class LabelDecorator < Draper::Decorator
   
   HEADERS = %w(Name Description Enabled Types Color)
   
+  def render_row
+    h.content_tag(:tr, row_cells)  
+  end
+  
   def self.panel_heading
     h.content_tag(:div, :class => "panel-heading") do
       h.content_tag(:h4, "All Labels")
     end.html_safe
-  end
-  
-  def render_row
-    h.content_tag(:tr, row_cells)  
   end
   
   def self.header_row
@@ -41,7 +41,7 @@ class LabelDecorator < Draper::Decorator
   
   def enabled_types_cell
     html_output = ""
-    types.map do |t|
+    types.each do |t|
       html_output += h.content_tag(:span, t, :class => "label #{type_class(t)}")
       html_output += "&nbsp;"
     end
