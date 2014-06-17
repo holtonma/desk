@@ -1,22 +1,17 @@
 require 'test_helper'
 
 class FiltersControllerTest < ActionController::TestCase
-
-  test "should get index" do
-    stub_get_request("filters", "filters.json")
-    get :index
-    assert assigns(:filters)
-    assert_equal 10, assigns(:filters).count
-    assert_response :success
+  
+  test "should route to index action" do
+    assert_routing "filters", {:controller => "filters", :action => "index"}
   end
   
-  test "filters should be decorated with Draper in html case" do
+  test "filters index should redirect" do
     stub_get_request("filters", "filters.json")
-    get :index
     
-    assert assigns(:filters).decorated_with?(Draper::CollectionDecorator)
+    get :index
+    assert_response :redirect
   end
   
-  private
   
 end

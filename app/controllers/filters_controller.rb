@@ -2,16 +2,8 @@ class FiltersController < ApplicationController
   respond_to :js, :html
   
   def index
-    @filters = FilterDecorator.decorate_collection(Filter.all) # remote call
-    
-    respond_with(@filters)
-  end
-  
-  def show
-    @filter = Filter.find(params[:id].to_i)
-    FilterDecorator.decorate(@filter)
-    
-    respond_with(@filter)
+    filter = Filter.all.first 
+    redirect_to filter_cases_url({:filter_id => filter.id, :selected_filter_name => filter.name})
   end
   
 end
