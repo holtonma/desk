@@ -89,6 +89,15 @@ class CasesControllerTest < ActionController::TestCase
     assert_match "Bad Request", @response.body
   end
   
+  test "rescue from 503 Service Unavailable" do
+    filter_id = 1234
+    setup_response_code_mock(503)
+    
+    get :index, {:filter_id => filter_id}
+    assert_template 'shared/remote_error'
+    assert_match "unavailable", @response.body
+  end
+  
   private
   
   def setup_cases_mocks(filter_id)

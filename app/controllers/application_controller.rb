@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   rescue_from Desk::BadRequest,   :with => :render_400
   rescue_from Desk::Unauthorized, :with => :render_401
   rescue_from Desk::NotFound,     :with => :render_404
-  
+  rescue_from Desk::ServiceUnavailable, :with => :render_503
   protect_from_forgery
   
   private
@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
   
   def render_401
     render_error("Unauthorized")
+  end
+
+  def render_503
+    render_error("The remote service is unavailable at this time.")
   end
 
   def render_error(message)
