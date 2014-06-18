@@ -33,13 +33,21 @@ class LabelsController < ApplicationController
   def error_output
     error_text = []
     @label.errors.each do |attribute, error|
-      error_text << "#{attribute} #{error}"
+      error_text << "*#{attribute}* #{error}"
     end
     error_text.join("; ").html_safe
   end
   
   def remote_error_output(response)
-    error_text = "Remote error: #{response.errors.flatten.to_s}".html_safe if response && response.errors
+    error_text = ""
+    if response && response.errors
+      response.errors.to_hash.each do |k, v|
+        error_text += "*#{k}* is "
+        error_text += "#{v.join(' and ')}."
+      end
+    end
+    
+    error_text
   end
   
 end

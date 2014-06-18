@@ -51,9 +51,8 @@ class CasesControllerTest < ActionController::TestCase
   test "should get show" do 
     case_id = 1
     
-    stub_get_request("labels",                   "labels.json")
-    stub_get_request("cases/#{case_id}",         "case.json")
-    stub_get_request("cases/#{case_id}/labels",  "labels.json")
+    stub_get_request("labels",           "labels.json") # display labels in form
+    stub_get_request("cases/#{case_id}", "case.json")   # display case to see what we're adding labels to
     
     get :show, {:filter_id => 1234, :id => 1, :labels => ["Escalated Example"]}
     assert_response :success
