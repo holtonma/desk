@@ -4,8 +4,7 @@
 * githup repo is: https://github.com/holtonma/desk
 
 Visit: http://markdesk.herokuapp.com/
-1. logs in via OAuth Single Access Token 
-  - config secrets in Environment vars on Heroku and locally, not checked in (best practice) 
+1. logs in via OAuth Single Access Token: config secrets in Environment vars on Heroku and locally, not checked in (best practice) 
 2. Lists available case Filters, allows user to click on one
 3. upon selecting a filter, displays cases matching that filter with Labels
 4. Can view or create labels on the 'Labels' tab (http://markdesk.herokuapp.com/labels)
@@ -20,7 +19,7 @@ Visit: http://markdesk.herokuapp.com/
 * 'desk' gem for interfacing with the Desk api -- started writing my own client (you can see in earlier commits, and was reinventing the wheel so stopped)
 * wrapped the Desk gem with facades around the 'models'.  E.g. Label model has class methods for: create, all, find.  ActiveModel::Validations used
 * provided some basic exception trapping for items the user might run into: E.g. 400, 401, 404, 503 -- rescue from these and present basic info (these are tested)
-* TODO: pagination (but will leave that for another day)
+* TODO: pagination (but will leave that for another day!)
 * decent amount of tests: 33 tests, 119 assertions
 
   $ rake test
