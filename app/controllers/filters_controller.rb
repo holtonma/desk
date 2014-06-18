@@ -3,7 +3,7 @@ class FiltersController < ApplicationController
   
   def index
     filter = Filter.all.first 
-    redirect_to filter_cases_url({:filter_id => filter.id, :selected_filter_name => filter.name})
+    redirect_to filter_cases_url({:filter_id => filter.id})
   end
   
 end

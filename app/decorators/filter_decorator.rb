@@ -2,7 +2,7 @@ class FilterDecorator < Draper::Decorator
   delegate_all
   
   def link_to_filter(active_filter_id=nil)
-    helpers.link_to "#{filter.name}", helpers.filter_cases_path({:filter_id => filter.id, :selected_filter_name => filter.name}), 
+    helpers.link_to "#{filter.name}", helpers.filter_cases_path({:filter_id => filter.id}), 
                                                                 {:class => "list-group-item #{active_class(active_filter_id)}"}
   end
   
