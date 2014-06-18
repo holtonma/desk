@@ -6,16 +6,16 @@ class LabelsController < ApplicationController
   end
 
   def create
-    options = params[:label_form].symbolize_keys
-    label = Label.create!(options)
-    
-    if label.errors
-      flash[:alert] = "Label not created. #{label.message}."
+    options  = params[:label_form].symbolize_keys
+    @label   = Label.new(options)
+    response = Label.create!(options) if @label.valid? # check if valid before going to remote 
+    if @label.errors.count > 0 || (response.errors && response.errors.count > 0)
+      flash[:alert] = "Label not created. #{error_output} #{remote_error_output(response)}"
       prepare_form
-      @label = Label.new(options)
+      @label = Label.new(options) # init with same posted data
       render :index
     else
-      flash[:notice] = "Successfully created label: #{label.name}"
+      flash[:notice] = "Successfully created label: #{@label.name}"
       redirect_to :action => 'index'
     end
     
@@ -28,6 +28,18 @@ class LabelsController < ApplicationController
     # for label form:
     @color_options = Label::COLOR_OPTIONS
     @type_options  = Label::TYPES
+  end
+  
+  def error_output
+    error_text = []
+    @label.errors.each do |attribute, error|
+      error_text << "#{attribute} #{error}"
+    end
+    error_text.join("; ").html_safe
+  end
+  
+  def remote_error_output(response)
+    error_text = "Remote error: #{response.errors.flatten.to_s}".html_safe if response && response.errors
   end
   
 end

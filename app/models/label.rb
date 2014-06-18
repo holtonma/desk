@@ -1,5 +1,6 @@
 class Label 
   include ActiveModel::Validations
+  validates_presence_of :name
   
   attr_reader   :id
   attr_accessor :name, :description, :color, :enabled, :types, :color
@@ -35,4 +36,5 @@ class Label
     Desk.create_label(attrs)
   end
     
+  
 end
